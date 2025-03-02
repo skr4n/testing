@@ -18,6 +18,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: install stuff
+        run: sudo apt install -y postgresql-client
+
       - name: Run a one-line script
         run: python .github/epoch_stats.py
 
