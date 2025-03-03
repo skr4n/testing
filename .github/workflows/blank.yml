@@ -17,19 +17,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+        with:
+          ref: ci
 
       - name: install stuff
         run: sudo apt install -y postgresql-client
 
       - name: create a blank file
         run: touch "test-$(date '+%s').txt"
-      - name: Commit changes
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add .
-          git commit -m "update epochs"
-          git push origin ci
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
        
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
