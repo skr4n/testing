@@ -21,6 +21,8 @@ jobs:
       - name: install stuff
         run: sudo apt install -y postgresql-client
 
+      - name: create a blank file
+        run: touch "test-$(date '+%s').txt"
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions'
