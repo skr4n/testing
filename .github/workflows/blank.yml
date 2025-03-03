@@ -34,5 +34,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: 'update epochs'
           body: ''
-          head: ci
           base: main
