@@ -21,9 +21,6 @@ jobs:
       - name: install stuff
         run: sudo apt install -y postgresql-client
 
-      - name: Run a one-line script
-        run: python .github/epoch_stats.py
-
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions'
